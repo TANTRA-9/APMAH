@@ -1,6 +1,7 @@
 package com.example.apmah.Fragments;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.apmah.Chat.Chatts;
 import com.example.apmah.Data.UserData;
 import com.example.apmah.R;
 import com.example.apmah.Register.UserDetail;
@@ -99,8 +101,10 @@ public class FriendFragment extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name = getRef(position).getKey();
-                        Toast.makeText(getContext(), ""+name, Toast.LENGTH_SHORT).show();
+                        //String name = getRef(position).getKey();
+                        startActivity(new Intent(getContext(),Chatts.class));
+
+
                     }
                 });
             }
