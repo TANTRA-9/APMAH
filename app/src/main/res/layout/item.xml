@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="575dp"
+        android:layout_margin="3dp"
+        android:background="@drawable/image_backgroung">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_ImageView"
+            android:layout_width="match_parent"
+            android:layout_height="410dp"
+            android:layout_margin="3dp"
+            android:padding="10dp"/>
+
+
+        <TextView
+            android:id="@+id/item_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#000000"
+            android:textSize="30sp"/>
+
+        <RelativeLayout
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/item_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/item_SendRequest"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+                android:text="Send Message"/>
+
+            <Button
+                android:id="@+id/item_AcceptRequest"
+                android:layout_below="@id/item_SendRequest"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button"
+                android:layout_marginTop="10dp"
+                android:text="Decline Request"
+                android:textColor="#ffffff"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

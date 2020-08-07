@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/Logout"
+        android:title="Logout"
+        app:showAsAction="never"
+        android:orderInCategory="100" />
+
+    <item
+        android:id="@+id/Messages"
+        android:icon="@android:drawable/ic_menu_send"
+        android:orderInCategory="200"
+        android:title="Messages"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/Search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always" />
+
+</menu>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "61281954890",
+    "firebase_url": "https://apmah-7c677.firebaseio.com",
+    "project_id": "apmah-7c677",
+    "storage_bucket": "apmah-7c677.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61281954890:android:e4bb07d0a05e7e9cfb0ab3",
+        "android_client_info": {
+          "package_name": "com.example.apmah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61281954890-fq28u51n0mj2p0dg1pt8tsb6oma30t8l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeFMCgSXelm7FMaPcDHjvUwf1JraowEoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "61281954890-fq28u51n0mj2p0dg1pt8tsb6oma30t8l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
