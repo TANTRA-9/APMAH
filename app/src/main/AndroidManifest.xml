@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Messages.MainMessages" android:parentActivityName=".Enter"></activity>
+        <activity android:name=".Chat.Chatts"></activity>
+        <activity
+            android:name=".Messages.MainMessages"
+            android:parentActivityName=".Enter" />
         <activity android:name=".Register.UserDetail" />
         <activity
             android:name=".Register.Register"
