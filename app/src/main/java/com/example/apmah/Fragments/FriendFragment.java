@@ -101,10 +101,10 @@ public class FriendFragment extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //String name = getRef(position).getKey();
-                        startActivity(new Intent(getContext(),Chatts.class));
-
-
+                        String getUserId = getRef(position).getKey();
+                        Intent intent  = new Intent(getContext(),Chatts.class);
+                        intent.putExtra("Nishantcheck",getUserId);
+                        startActivity(intent);
                     }
                 });
             }

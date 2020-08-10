@@ -1,23 +1,47 @@
 package com.example.apmah.Chat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.apmah.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Chatts extends AppCompatActivity {
 
     Toolbar toolbar;
     RecyclerView recyclerView;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Register User Images");
+    TextView name,status;
+    CircleImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatts);
+
+        name = findViewById(R.id.chatts_NameText);
+        status = findViewById(R.id.chatts_StatusText);
+        imageView = findViewById(R.id.chatts_ProfilePic);
 
         toolbar = findViewById(R.id.chatts_Toolbar);
         setSupportActionBar(toolbar);
@@ -25,5 +49,36 @@ public class Chatts extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.chatts_RecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(Chatts.this));
+
+        Intent intent = getIntent();
+        final String check = intent.getStringExtra("Nishantcheck");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.child("Female").child(check).exists()){
+                    name.setText(snapshot.child("Female").child(check).child("Name").getValue().toString());
+                    status.setText(snapshot.child("Female").child(check).child("Status").getValue().toString());
+                }
+                else if(snapshot.child("Male").child(check).exists()){
+                    name.setText(snapshot.child("Male").child(check).child("Name").getValue().toString());
+                    status.setText(snapshot.child("Male").child(check).child("Status").getValue().toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        storageReference.child(check).getBytes(5024*5024).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                imageView.setImageBitmap(bitmap);
+            }
+        });
     }
 }
