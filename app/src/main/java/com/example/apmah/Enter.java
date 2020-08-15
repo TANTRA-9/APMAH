@@ -30,6 +30,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.apmah.About_Application.about_application;
 import com.example.apmah.Data.UserData;
 import com.example.apmah.Messages.MainMessages;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -134,7 +135,9 @@ public class Enter extends AppCompatActivity {
         else if(item.getItemId() == R.id.Messages){
             startActivity(new Intent(Enter.this, MainMessages.class));
         }
-
+        else if(item.getItemId() == R.id.About_Application){
+            startActivity(new Intent(Enter.this, about_application.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 

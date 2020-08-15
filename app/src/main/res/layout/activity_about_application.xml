@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".About_Application.about_application">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/About_Application_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/dp"/>
+
+    <TextView
+        android:layout_below="@id/About_Application_image"
+        android:id="@+id/About_Application_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Nishant Tomar"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/About_Application_Creator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/About_Application_Name"
+        android:text="(Creator, Developer)"
+        android:layout_marginLeft="20dp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_below="@+id/About_Application_Creator"
+        android:id="@+id/About_Application_Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:text="Description"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:background="@drawable/line_below"/>
+
+    <TextView
+        android:layout_below="@id/About_Application_Description"
+        android:id="@+id/About_Application_about1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="- Social dating app allows you to connect with
+        \n people world wide. Find your mate and connect
+        \n with them by sending chat request. It provides
+        \n you messaging facility to chat with closer ones
+        \n easily."
+        android:textColor="#000000"/>
+
+    <Button
+        android:id="@+id/About_Application_Share"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/About_Application_about1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/custom_button"
+        android:drawableStart="?attr/actionModeShareDrawable"
+        android:gravity="left|center_vertical"
+        android:text="     Share"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

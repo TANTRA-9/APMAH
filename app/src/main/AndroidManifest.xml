@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Chat.Chatts"></activity>
+        <activity android:name=".About_Application.about_application"></activity>
+        <activity android:name=".Chat.Chatts" />
         <activity
             android:name=".Messages.MainMessages"
             android:parentActivityName=".Enter" />
