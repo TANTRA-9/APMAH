@@ -57,14 +57,15 @@
         android:id="@+id/chatts_RecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/chatts_LinearLayout">
+        android:layout_above="@id/chatts_LinearLayout"
+        android:background="#DCDCDC">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
         android:id="@+id/chatts_LinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
 
@@ -72,6 +73,10 @@
         android:id="@+id/chatts_EditText"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
+        android:hint="Type Message"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:outlineAmbientShadowColor="#000000"
         />
 
         <ImageButton
@@ -80,6 +85,7 @@
             android:layout_height="40dp"
             android:src="@android:drawable/ic_menu_send"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:background="#ffffff"/>
 
     </LinearLayout>
