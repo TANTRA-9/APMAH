@@ -10,11 +10,16 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.apmah.R;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,8 +36,12 @@ public class Chatts extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Register User Images");
+    DatabaseReference chatsMessage = FirebaseDatabase.getInstance().getReference().child("Chats");
+    FirebaseUser User = FirebaseAuth.getInstance().getCurrentUser();
     TextView name,status;
     CircleImageView imageView;
+    EditText editText;
+    ImageButton send;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,8 @@ public class Chatts extends AppCompatActivity {
         name = findViewById(R.id.chatts_NameText);
         status = findViewById(R.id.chatts_StatusText);
         imageView = findViewById(R.id.chatts_ProfilePic);
+        editText = findViewById(R.id.chatts_EditText);
+        send = findViewById(R.id.chatts_SendMessage);
 
         toolbar = findViewById(R.id.chatts_Toolbar);
         setSupportActionBar(toolbar);
@@ -78,6 +89,20 @@ public class Chatts extends AppCompatActivity {
             public void onSuccess(byte[] bytes) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
                 imageView.setImageBitmap(bitmap);
+            }
+        });
+
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String getMessage = editText.getText().toString();
+                if(getMessage.isEmpty()) {
+                    Toast.makeText(Chatts.this, "Enter Message", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    chatsMessage.child(User.getUid()).child(check).child("Message").setValue(getMessage);
+                    editText.setText("");
+                }
             }
         });
     }

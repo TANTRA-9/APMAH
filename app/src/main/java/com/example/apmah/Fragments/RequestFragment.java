@@ -1,6 +1,7 @@
 package com.example.apmah.Fragments;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.apmah.Chat.Chatts;
 import com.example.apmah.Data.UserData;
 import com.example.apmah.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -65,7 +67,7 @@ public class RequestFragment extends Fragment {
 
         FirebaseRecyclerAdapter<UserData,RecyclerHolder> adapter = new FirebaseRecyclerAdapter<UserData, RecyclerHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final RecyclerHolder holder, int position, @NonNull UserData model) {
+            protected void onBindViewHolder(@NonNull final RecyclerHolder holder, final int position, @NonNull UserData model) {
 
                 final String id = getRef(position).getKey();
 
@@ -113,13 +115,6 @@ public class RequestFragment extends Fragment {
                     public void onClick(View v) {
                         reqReference.child(id).child(user.getUid()).child("Type").removeValue();
                         reqReference.child(user.getUid()).child("Receive").child(id).child("Type").removeValue();
-                    }
-                });
-
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
                     }
                 });
             }

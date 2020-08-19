@@ -65,19 +65,21 @@
     <LinearLayout
         android:id="@+id/chatts_LinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="#DCDCDC"
         android:layout_alignParentBottom="true">
 
-    <EditText
-        android:id="@+id/chatts_EditText"
-        android:layout_width="290dp"
-        android:layout_height="wrap_content"
-        android:hint="Type Message"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:outlineAmbientShadowColor="#000000"
-        />
+        <EditText
+            android:id="@+id/chatts_EditText"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="Type Message"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            android:outlineAmbientShadowColor="#000000"
+            android:layout_marginLeft="10dp"
+            />
 
         <ImageButton
             android:id="@+id/chatts_SendMessage"
@@ -86,7 +88,7 @@
             android:src="@android:drawable/ic_menu_send"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="#ffffff"/>
+            android:background="@drawable/custom_button"/>
 
     </LinearLayout>
 
