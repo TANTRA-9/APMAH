@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".About.UpdateAbout">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/UpdateAbout_profile"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/UpdateAbout_Name"
+        android:layout_below="@id/UpdateAbout_profile"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginRight="40dp"
+        android:hint="Name"
+        android:textColorHint="#000000"
+        app:boxStrokeColor="#FF03A9F4"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Register_Passss"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="#000000"
+            android:textColorHighlight="#FF03A9F4"
+            android:textColorHint="#FF03A9F4"
+            android:textColorLink="#FF03A9F4" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/UpdateAbout_Status"
+        android:layout_below="@id/UpdateAbout_Name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="40dp"
+        android:hint="Status"
+        android:textColorHint="#000000"
+        app:boxStrokeColor="#FF03A9F4"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Register_Pasyrs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="#000000"
+            android:textColorHighlight="#FF03A9F4"
+            android:textColorHint="#FF03A9F4"
+            android:textColorLink="#FF03A9F4"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</RelativeLayout>

@@ -135,7 +135,6 @@ public class Chatts extends AppCompatActivity {
                             editText.setText("");
                         }
                     });
-
                 }
             }
         });

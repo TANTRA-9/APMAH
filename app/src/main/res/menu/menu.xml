@@ -27,6 +27,13 @@
         android:title="About Application"
         android:id="@+id/About_Application"
         app:showAsAction="never"
+        android:orderInCategory="500"
+        />
+
+    <item
+        android:title="Update Profile"
+        android:id="@+id/Update_Profile"
+        app:showAsAction="never"
         android:orderInCategory="400"
         />
 
