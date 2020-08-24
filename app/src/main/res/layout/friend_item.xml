@@ -47,4 +47,14 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/fnrdItem_OnlineStatus"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/online"
+        android:layout_marginLeft="308dp"
+        android:layout_marginTop="23dp"
+        android:visibility="invisible"
+        />
+
 </RelativeLayout>

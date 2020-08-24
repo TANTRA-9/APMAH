@@ -15,7 +15,7 @@
         android:src="@drawable/dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/UpdateAbout_Name"
+        android:id="@+id/Update_NameLayout"
         android:layout_below="@id/UpdateAbout_profile"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Register_Passss"
+            android:id="@+id/UpdateAbout_Name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="20dp"
@@ -42,8 +42,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/UpdateAbout_Status"
-        android:layout_below="@id/UpdateAbout_Name"
+        android:id="@+id/Update_StatusLayout"
+        android:layout_below="@id/Update_NameLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Register_Pasyrs"
+            android:id="@+id/UpdateAbout_Status"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="20dp"
@@ -64,10 +64,20 @@
             android:textColor="#000000"
             android:textColorHighlight="#FF03A9F4"
             android:textColorHint="#FF03A9F4"
-            android:textColorLink="#FF03A9F4"
-            android:inputType="textPassword"/>
+            android:textColorLink="#FF03A9F4"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_below="@id/Update_StatusLayout"
+        android:id="@+id/UpdateAbout_Save"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_button"
+        android:text="Save"
+        android:textColor="#ffffff"/>
 
 
 </RelativeLayout>

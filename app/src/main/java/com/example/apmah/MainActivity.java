@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText name,pass;
     private FirebaseUser user;
     private ProgressDialog dialog;
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

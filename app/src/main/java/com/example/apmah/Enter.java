@@ -79,6 +79,7 @@ public class Enter extends AppCompatActivity {
         recyclerView = findViewById(R.id.Enter_RecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(Enter.this));
 
+
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -86,7 +87,7 @@ public class Enter extends AppCompatActivity {
                 if(snapshot.child("Male").child(user.getUid()).exists()){
                     setGender("Female");
                 }
-                if(snapshot.child("Female").child(user.getUid()).exists()){
+                else if(snapshot.child("Female").child(user.getUid()).exists()) {
                     setGender("Male");
                 }
             }
@@ -525,5 +526,4 @@ public class Enter extends AppCompatActivity {
             }
         });
     }
-
 }

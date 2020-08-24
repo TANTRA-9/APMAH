@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -79,10 +80,16 @@ public class ChatFragment extends Fragment {
                         if(snapshot.child("Male").child(id).exists()){
                             holder.name.setText(snapshot.child("Male").child(id).child("Name").getValue().toString());
                             holder.status.setText(snapshot.child("Male").child(id).child("Status").getValue().toString());
+                            if(snapshot.child("Male").child(User.getUid()).child("Online").equals("True")){
+                                holder.online.setVisibility(View.VISIBLE);
+                            }
                         }
                         else if(snapshot.child("Female").child(id).exists()){
                             holder.name.setText(snapshot.child("Female").child(id).child("Name").getValue().toString());
                             holder.status.setText(snapshot.child("Female").child(id).child("Status").getValue().toString());
+                            if(snapshot.child("Female").child(User.getUid()).child("Online").equals("True")){
+                                holder.online.setVisibility(View.VISIBLE);
+                            }
                         }
                     }
 
@@ -119,6 +126,7 @@ public class ChatFragment extends Fragment {
 
         TextView name,status;
         CircleImageView imageView;
+        ImageView online;
 
         public RecyclerHolder(@NonNull View itemView) {
 
@@ -127,6 +135,7 @@ public class ChatFragment extends Fragment {
             name = itemView.findViewById(R.id.frndItem_Name);
             status = itemView.findViewById(R.id.frndItem_Status);
             imageView = itemView.findViewById(R.id.frndItem_ImageView);
+            online = itemView.findViewById(R.id.fnrdItem_OnlineStatus);
 
         }
     }
