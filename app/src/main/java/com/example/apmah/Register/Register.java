@@ -80,28 +80,32 @@ public class Register extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        user = FirebaseAuth.getInstance().getCurrentUser();
 
-                                user = FirebaseAuth.getInstance().getCurrentUser();
+                                        class Data{
+                                            public String Gmail;
+                                            public String Pass;
 
-                                class Data{
-                                    public String Gmail;
-                                    public String Pass;
+                                            public Data( String gmail, String pass) {
 
-                                    public Data( String gmail, String pass) {
+                                                Gmail = gmail;
+                                                Pass = pass;
+                                            }
+                                        }
 
-                                        Gmail = gmail;
-                                        Pass = pass;
+                                        Data data = new Data(mail.getText().toString(),pass.getText().toString());
+                                        reference.child(radioButton.getText().toString()).child(user.getUid()).setValue(data);
+
+                                        dialog.dismiss();
+                                        Toast.makeText(Register.this, "Email Verification Sent", Toast.LENGTH_SHORT).show();
+
+                                        finish();
+                                        startActivity(new Intent(Register.this, MainActivity.class));
                                     }
-                                }
-
-
-                                Data data = new Data(mail.getText().toString(),pass.getText().toString());
-                                reference.child(radioButton.getText().toString()).child(user.getUid()).setValue(data);
-
-                                dialog.dismiss();
-                                finish();
-                                startActivity(new Intent(Register.this, UserDetail.class));
-
+                                });
                             }
                             else{
                                 Toast.makeText(Register.this, "Sign Up Failed!", Toast.LENGTH_SHORT).show();

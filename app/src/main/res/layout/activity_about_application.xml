@@ -10,7 +10,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="20dp"
-        android:src="@drawable/dp"/>
+        android:src="@drawable/develper"/>
 
     <TextView
         android:layout_below="@id/About_Application_image"

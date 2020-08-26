@@ -17,6 +17,7 @@ import com.example.apmah.Register.UserDetail;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText name,pass;
     private FirebaseUser user;
     private ProgressDialog dialog;
-    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+    //private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         user = firebaseAuth.getCurrentUser();
         dialog = new ProgressDialog(MainActivity.this);
 
-        if(user!=null){
+        if(user!=null && firebaseAuth.getCurrentUser().isEmailVerified()){
             finish();
             startActivity(new Intent(MainActivity.this,Enter.class));
         }
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Register.class));
             }
         });
-
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,8 +77,14 @@ public class MainActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
 
                                 dialog.dismiss();
-                                finish();
-                                startActivity(new Intent(MainActivity.this, Enter.class));
+
+                                if(firebaseAuth.getCurrentUser().isEmailVerified()){
+                                    finish();
+                                    startActivity(new Intent(MainActivity.this, UserDetail.class));
+                                }
+                                else{
+                                    Toast.makeText(MainActivity.this, "Verify Your Email", Toast.LENGTH_SHORT).show();
+                                }
                             }
                             else{
                                 dialog.dismiss();

@@ -42,6 +42,7 @@ public class UserDetail extends AppCompatActivity {
     private Uri uriImage;
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Register User Images");
     private ProgressDialog dialog;
+    private FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,25 @@ public class UserDetail extends AppCompatActivity {
         btn = findViewById(R.id.userDetail_button);
 
         dialog = new ProgressDialog(UserDetail.this);
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.child("Male").child(user.getUid()).child("Status").exists() && auth.getCurrentUser().isEmailVerified()){
+                    finish();
+                    startActivity(new Intent(UserDetail.this,Enter.class));
+                }
+                if(snapshot.child("Female").child(user.getUid()).child("Status").exists() && auth.getCurrentUser().isEmailVerified()){
+                    finish();
+                    startActivity(new Intent(UserDetail.this,Enter.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

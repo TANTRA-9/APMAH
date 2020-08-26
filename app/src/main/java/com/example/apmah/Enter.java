@@ -1,9 +1,11 @@
 package com.example.apmah;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -51,6 +53,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -142,6 +145,18 @@ public class Enter extends AppCompatActivity {
         }
         else if(item.getItemId() == R.id.Update_Profile){
             startActivity(new Intent(Enter.this, UpdateAbout.class));
+        }
+        else if(item.getItemId() == R.id.Share_App){
+            try {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT,"share demo");
+                String shareLink = "JUst Checking it";
+                intent.putExtra(Intent.EXTRA_TEXT,shareLink);
+                startActivity(Intent.createChooser(intent,"Share by"));
+            }catch (Exception e){
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            }
         }
         return super.onOptionsItemSelected(item);
     }
