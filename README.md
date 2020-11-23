@@ -3,7 +3,7 @@
 I use React.js for front-end and Firebase for back-end (Database, Hosting, Storage, Authentication, Email Verification, Phone no Verification).
 
 ## About Project
-Short Description :- Andoird social dating app allow you to connect with people world wide. Find your mate and connect with them by sending friend request. It provides you messaging facility to chat with closer ones easily.
+Short Description :- Android social dating app allow you to connect with people world wide. Find your mate and connect with them by sending friend request. It provides you messaging facility to chat with closer ones easily.
 
 ###### Features:- 
 1. Messaging :- Real time messaging with friends using firebase real time database and message will store in the firebase database.
